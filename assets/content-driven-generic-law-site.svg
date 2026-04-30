@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+  <rect width="1200" height="650" fill="#FBFAF6"/>
+  <rect x="0" y="0" width="1200" height="70" fill="#FFFFFF"/>
+  <line x1="0" y1="70" x2="1200" y2="70" stroke="#D8D0C0" stroke-width="2"/>
+  <rect x="36" y="25" width="34" height="20" rx="3" fill="#B14B2D"/>
+  <text x="84" y="42" fill="#111827" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">法律观察</text>
+  <text x="735" y="42" fill="#66707D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">热点解读</text>
+  <text x="830" y="42" fill="#66707D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">案例文章</text>
+  <text x="925" y="42" fill="#66707D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">播客视频</text>
+  <text x="1020" y="42" fill="#66707D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">风险清单</text>
+  <circle cx="1140" cy="35" r="14" fill="none" stroke="#C6A661" stroke-width="3"/>
+  <line x1="1151" y1="46" x2="1162" y2="57" stroke="#C6A661" stroke-width="3" stroke-linecap="round"/>
+
+  <text x="54" y="135" fill="#B14B2D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" font-weight="700">LEGAL CONTENT FEED</text>
+  <text x="54" y="190" fill="#111827" font-family="Georgia, 'Songti SC', serif" font-size="54" font-weight="700">用内容解释法律问题</text>
+  <text x="54" y="232" fill="#66707D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="24">热点、案例、问答、播客持续更新，但咨询路径并不突出。</text>
+
+  <rect x="54" y="282" width="510" height="260" rx="10" fill="#FFFFFF" stroke="#D8D0C0" stroke-width="2"/>
+  <rect x="80" y="306" width="90" height="24" rx="12" fill="#F4EAD4"/>
+  <text x="96" y="324" fill="#8A6B35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700">热点解读</text>
+  <text x="80" y="375" fill="#111827" font-family="Georgia, 'Songti SC', serif" font-size="34" font-weight="700">平台用工争议的最新</text>
+  <text x="80" y="416" fill="#111827" font-family="Georgia, 'Songti SC', serif" font-size="34" font-weight="700">裁判趋势观察</text>
+  <text x="80" y="468" fill="#66707D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20">围绕新型业务场景持续输出观点。</text>
+  <line x1="80" y1="505" x2="310" y2="505" stroke="#C6A661" stroke-width="6" stroke-linecap="round"/>
+
+  <rect x="594" y="282" width="260" height="118" rx="10" fill="#FFFFFF" stroke="#D8D0C0" stroke-width="2"/>
+  <circle cx="632" cy="341" r="24" fill="#111827"/>
+  <polygon points="626,327 626,355 648,341" fill="#C6A661"/>
+  <text x="676" y="329" fill="#B14B2D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">播客</text>
+  <text x="676" y="360" fill="#111827" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">律师谈热点案件</text>
+
+  <rect x="594" y="424" width="260" height="118" rx="10" fill="#FFFFFF" stroke="#D8D0C0" stroke-width="2"/>
+  <rect x="626" y="454" width="58" height="58" rx="8" fill="#F4EAD4"/>
+  <line x1="642" y1="474" x2="668" y2="474" stroke="#C6A661" stroke-width="4" stroke-linecap="round"/>
+  <line x1="642" y1="490" x2="668" y2="490" stroke="#C6A661" stroke-width="4" stroke-linecap="round"/>
+  <text x="704" y="474" fill="#B14B2D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">清单</text>
+  <text x="704" y="505" fill="#111827" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">企业风险自测</text>
+
+  <rect x="884" y="282" width="260" height="260" rx="10" fill="#FFFFFF" stroke="#D8D0C0" stroke-width="2"/>
+  <text x="916" y="326" fill="#111827" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">最新文章</text>
+  <line x1="916" y1="354" x2="1104" y2="354" stroke="#D8D0C0" stroke-width="2"/>
+  <text x="916" y="393" fill="#66707D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18">01  合同解除的证据要点</text>
+  <text x="916" y="438" fill="#66707D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18">02  网络侵权责任边界</text>
+  <text x="916" y="483" fill="#66707D" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18">03  新型平台业务合规</text>
+  <line x1="916" y1="514" x2="1038" y2="514" stroke="#C6A661" stroke-width="5" stroke-linecap="round"/>
+
+  <rect x="54" y="584" width="1090" height="34" rx="17" fill="#F4EAD4"/>
+  <text x="80" y="607" fill="#8A6B35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">示意：内容触点丰富，但若缺少机构背书与明确咨询路径，容易停留在内容影响力。</text>
+</svg>
