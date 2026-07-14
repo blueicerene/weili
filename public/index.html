@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>北京纬理律师事务所 UI 方案</title>
+<style>
+  :root{
+    --ink:#151923;--muted:#667085;--paper:#fbfaf6;--soft:#f3ede2;--line:#e2d8c7;
+    --navy:#121b2f;--gold:#b89553;--gold-dark:#836236;--red:#9d432f;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:104px}
+  body{margin:0;background:#eee5d8;color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif}
+  button,a{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+  .page{max-width:1440px;margin:0 auto;background:var(--paper);min-height:100vh}
+  header{height:92px;display:flex;align-items:center;justify-content:space-between;padding:0 72px;border-bottom:1px solid var(--line);background:rgba(251,250,246,.96);position:sticky;top:0;z-index:10;backdrop-filter:blur(16px)}
+  .brand{display:flex;align-items:center;gap:18px}.brand-link{display:flex;align-items:center;gap:18px}.mark{width:88px;height:48px;display:grid;place-items:center;background:var(--paper)}.mark img{display:block;width:100%;height:100%;object-fit:contain}.brand-cn{font-size:18px;font-weight:700;letter-spacing:5px;white-space:nowrap}.brand-en{margin-top:4px;color:#7b8491;font-size:10px;letter-spacing:3px}
+  nav{display:flex;gap:38px;color:#202838;font-size:15px;white-space:nowrap}.nav-link{position:relative;padding:10px 0;color:#2c3443}.nav-link:after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}.nav-link:hover:after,.nav-link.is-active:after{transform:scaleX(1)}.nav-link.is-active{color:var(--gold-dark)}.right{display:flex;align-items:center;gap:18px}.lang{font-size:13px;color:#7b8491}.btn{display:inline-block;border:1px solid var(--navy);background:var(--navy);color:#fff;padding:12px 20px;border-radius:0;text-align:center}.btn.ghost{background:transparent;color:var(--navy)}.more{border:0;background:transparent;color:var(--gold-dark);padding:0;font-size:13px;letter-spacing:.5px}.menu-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;color:var(--navy);align-items:center;justify-content:center;gap:5px;flex-direction:column}.menu-toggle span{width:18px;height:2px;background:currentColor;display:block}.mobile-panel{display:none}
+  .hero{min-height:590px;display:grid;grid-template-columns:.92fr 1.08fr;border-bottom:1px solid var(--line)}
+  .hero-copy{padding:86px 54px 72px 84px}.eyebrow{color:var(--red);font-size:12px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:22px}.hero h1{font-family:"Songti SC","STSong",serif;font-size:61px;line-height:1.15;margin:0 0 28px;font-weight:700}.hero p{max-width:560px;color:#4f5867;font-size:21px;line-height:1.75;margin:0 0 36px}.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-banner{position:relative;overflow:hidden;background:#121b2f}.hero-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,27,47,.02),rgba(18,27,47,.56)),linear-gradient(90deg,rgba(18,27,47,.26),rgba(18,27,47,.04) 52%,rgba(18,27,47,.3));z-index:2}.slide{position:absolute;inset:0;background:var(--image) center/cover;opacity:0;transition:opacity 1.1s ease}.slide.is-active{opacity:1}.slide-content{position:absolute;left:42px;right:42px;bottom:42px;color:#fff;z-index:3;border-top:1px solid rgba(255,255,255,.54);padding-top:20px;text-shadow:0 2px 18px rgba(0,0,0,.32)}.slide-content h2{font-family:"Songti SC","STSong",serif;font-size:34px;line-height:1.25;margin:0 0 12px}.slide-content p{max-width:650px;color:#f2f5f8;font-size:16px;line-height:1.75;margin:0 0 22px}.slide-cta{display:inline-block;border:1px solid rgba(255,255,255,.66);color:#fff;text-decoration:none;padding:11px 18px;font-size:14px;background:rgba(18,27,47,.2)}.banner-dots{position:absolute;right:42px;bottom:24px;z-index:4;display:flex;gap:9px}.banner-dot{width:34px;height:12px;border:0;background:transparent;padding:5px 0;cursor:pointer}.banner-dot:before{content:"";display:block;width:100%;height:2px;background:rgba(255,255,255,.38);transition:background .25s ease}.banner-dot.is-active:before{background:#fff}
+  .section{padding:70px 72px;border-bottom:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:34px}.label{color:var(--red);font-size:12px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:10px}.section h2{font-family:"Songti SC","STSong",serif;font-size:36px;line-height:1.2;margin:0}.section-intro{max-width:640px;color:var(--muted);font-size:17px;line-height:1.85;margin:0}
+  .services{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px}.service-col h3{font-size:20px;margin:0 0 22px;color:var(--gold-dark)}.link-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 34px}.service-link{display:flex;justify-content:space-between;align-items:center;border:0;border-top:1px solid var(--line);padding:18px 0;color:#1f2937;font-size:18px;background:transparent;text-align:left;width:100%;transition:color .2s ease,padding-left .2s ease}.service-link span{color:var(--gold);font-family:Georgia,serif}.service-link:hover,.service-link.is-active{color:var(--gold-dark);padding-left:10px}.service-link.is-active{border-top-color:var(--gold);font-weight:700}.focus{background:var(--navy);color:#fff;padding:34px 36px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between}.focus h3{font-family:"Songti SC","STSong",serif;font-size:32px;line-height:1.35;margin:0 0 20px}.focus p{color:#d4dae4;line-height:1.8;margin:0}.focus-note{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);color:var(--gold);font-size:13px;letter-spacing:1px;text-transform:uppercase}
+  .feature-band{padding:70px 72px;border-bottom:1px solid var(--line);background:#fff}.feature-band.dark{background:var(--navy);color:#fff}.feature-inner{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;align-items:center}.feature-band h2{font-family:"Songti SC","STSong",serif;font-size:35px;line-height:1.25;margin:0 0 18px}.feature-band p{color:var(--muted);font-size:17px;line-height:1.85;margin:0}.feature-band.dark p{color:#ccd3de}.flow-diagram{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding:38px;border:1px solid var(--line);background:linear-gradient(135deg,#fff,#f3f7fb);overflow:hidden}.flow-diagram:before{content:"";position:absolute;left:8%;right:8%;top:50%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}.flow-diagram.dark{border-color:rgba(255,255,255,.18);background:linear-gradient(135deg,#0f192d,#17365b)}.flow-step{position:relative;z-index:1;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;border:1px solid rgba(184,149,83,.28);background:rgba(255,255,255,.72);box-shadow:0 18px 45px rgba(18,27,47,.08)}.flow-diagram.dark .flow-step{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);box-shadow:none}.flow-num{font-family:Georgia,serif;color:var(--gold);font-size:20px;margin-bottom:18px}.flow-icon{width:72px;height:72px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin-bottom:18px;color:var(--gold);font-size:28px;background:rgba(184,149,83,.08)}.flow-step strong{display:block;font-size:22px;line-height:1.35;color:var(--ink)}.flow-diagram.dark .flow-step strong{color:#fff}.flow-step span{display:block;margin-top:12px;color:var(--muted);font-size:14px;line-height:1.65}.flow-diagram.dark .flow-step span{color:#cfd6df}.promise-diagram{grid-template-columns:repeat(3,1fr);gap:0;padding:34px;border-color:rgba(184,149,83,.28);background:linear-gradient(135deg,#fffdf8 0%,#f7fbff 100%)}.promise-diagram:before{display:none}.promise-step{min-height:235px;gap:8px;padding:30px 22px;border:0;border-right:1px solid rgba(184,149,83,.28);background:transparent;box-shadow:none}.promise-step:last-child{border-right:0}.promise-step .flow-num{margin-bottom:10px;font-size:19px;letter-spacing:1px}.promise-step .flow-icon{width:82px;height:82px;margin:0 0 18px;border-color:rgba(184,149,83,.7);background:rgba(255,255,255,.62);box-shadow:0 16px 38px rgba(18,27,47,.07);font-size:31px}.promise-step strong{font-size:34px;letter-spacing:1px;white-space:nowrap}
+  .team{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:start}.people{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.person{border-top:2px solid var(--gold);padding-top:18px}.avatar{height:156px;background:linear-gradient(145deg,#d1c7b6,#fbfaf6 58%,#aeb7c2);margin-bottom:16px}.person h3{font-size:20px;margin:0 0 8px}.person p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+  .observation{display:grid;grid-template-columns:.88fr 1.12fr;gap:52px;align-items:start}.article-list{border-top:1px solid var(--line)}.article{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}.date{color:var(--gold-dark);font-family:Georgia,serif;font-size:16px}.article h3{font-size:20px;line-height:1.45;margin:0 0 8px}.article p{color:var(--muted);line-height:1.7;margin:0;font-size:14px}.podcast-card{margin-top:28px;background:var(--navy);color:#fff;padding:28px 30px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}.podcast-card .label{color:var(--gold);margin-bottom:12px}.podcast-card h3{font-family:"Songti SC","STSong",serif;font-size:28px;line-height:1.35;margin:0 0 12px}.podcast-card p{color:#d4dae4;line-height:1.75;margin:0}.podcast-link{border:1px solid rgba(255,255,255,.48);color:#fff;text-decoration:none;padding:12px 18px;font-size:14px;white-space:nowrap}
+  .split{display:grid;grid-template-columns:1fr 1fr;padding:0;border-bottom:1px solid var(--line)}.split-card{min-height:360px;padding:66px 72px;background:#fff}.split-card:nth-child(2){background:var(--soft)}.split-card p{color:var(--muted);font-size:16px;line-height:1.85;max-width:520px}.split-card h2{font-family:"Songti SC","STSong",serif;font-size:35px;margin:0 0 20px}
+  footer{background:var(--navy);color:#ccd3de;padding:56px 72px;display:grid;grid-template-columns:1fr 1.25fr .75fr;gap:42px;font-size:14px;line-height:1.9;scroll-margin-top:104px}footer h3{color:#fff;font-size:18px;margin:0 0 12px}footer p{margin:0;color:#ccd3de}.foot-links{display:grid;gap:6px}.contact-lead{color:#fff;font-family:"Songti SC","STSong",serif;font-size:32px;line-height:1.35;margin:0 0 18px}.contact-mail{display:inline-block;margin-top:24px;border:1px solid rgba(255,255,255,.5);color:#fff;padding:14px 20px;font-size:18px;letter-spacing:.5px}.contact-mail:hover{border-color:#fff;background:rgba(255,255,255,.08)}.foot-links a{color:#ccd3de}.foot-links a:hover{color:#fff}
+  @media(max-width:1080px){
+    header,.section,.feature-band{padding-left:34px;padding-right:34px}.desktop-nav,.right{display:none}.menu-toggle{display:flex}.mobile-panel{position:fixed;left:0;right:0;top:92px;z-index:9;background:rgba(251,250,246,.98);border-bottom:1px solid var(--line);padding:24px 34px 30px;box-shadow:0 24px 60px rgba(18,27,47,.12);transform:translateY(-120%);transition:transform .3s ease;display:grid;gap:18px}.mobile-panel.is-open{transform:translateY(0)}.mobile-panel .nav-link{font-size:22px;font-weight:700;border-bottom:1px solid var(--line);padding:14px 0}.mobile-panel .btn{margin-top:8px}.hero{grid-template-columns:1fr}.hero-copy{padding:70px 34px}.hero h1{font-size:52px}.hero-banner{min-height:380px}.services,.team,.observation,.split,footer,.feature-inner{grid-template-columns:1fr}.split-card{padding-left:34px;padding-right:34px}.people{grid-template-columns:repeat(3,1fr)}
+  }
+  @media(max-width:720px){
+    html{scroll-padding-top:84px}header{height:auto;padding:16px 22px}.brand-link{gap:12px}.brand-cn{font-size:15px;letter-spacing:2px}.brand-en{letter-spacing:1.2px}.mark{width:70px;height:38px}.mobile-panel{top:75px;padding:20px 22px 26px}.hero-copy{padding:54px 22px}.hero h1{font-size:39px}.hero p{font-size:18px}.hero-banner{min-height:360px}.slide-content{left:22px;right:22px;bottom:46px}.slide-content h2{font-size:25px}.slide-content p{font-size:15px}.slide-cta{text-align:center}.banner-dots{left:22px;right:auto;bottom:22px}.section,.feature-band{padding:48px 22px}.section-head{display:block}.section h2,.split-card h2,.feature-band h2{font-size:30px}.services{gap:30px}.link-grid,.people,.flow-diagram{grid-template-columns:1fr}.service-link{font-size:17px}.focus{padding:28px}.focus h3{font-size:28px}.feature-inner{gap:28px}.flow-diagram{padding:22px}.flow-diagram:before{display:none}.flow-step{min-height:auto;padding:24px}.promise-diagram{gap:0;padding:8px 0}.promise-step{border-right:0;border-bottom:1px solid rgba(184,149,83,.24);padding:28px 18px}.promise-step:last-child{border-bottom:0}.promise-step strong{font-size:28px}.promise-step .flow-icon{width:70px;height:70px;font-size:27px}.article{grid-template-columns:1fr;gap:8px}.podcast-card{grid-template-columns:1fr;padding:26px 24px}.podcast-link{text-align:center}.split-card{min-height:auto;padding:48px 22px}footer{padding:42px 22px}.contact-lead{font-size:28px}.contact-mail{width:100%;text-align:center;font-size:16px}.btn{width:100%}.hero-actions{display:grid}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <div class="brand"><a class="brand-link" href="#top" aria-label="返回首页顶部"><div class="mark"><img src="assets/weli-logo-mark.png" alt="纬理"></div><div><div class="brand-cn">北京纬理律师事务所</div><div class="brand-en">BEIJING WELI LAW FIRM</div></div></a></div>
+    <nav class="desktop-nav" aria-label="主导航">
+      <a class="nav-link" href="#services">服务领域</a>
+      <a class="nav-link" href="#team">专业人员</a>
+      <a class="nav-link" href="#observation">纬理观察</a>
+      <a class="nav-link" href="#about">关于纬理</a>
+      <a class="nav-link" href="#join">加入我们</a>
+    </nav>
+    <div class="right"><span class="lang">CN / EN</span><a class="btn" href="#contact">预约咨询</a></div>
+    <button class="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+  <nav class="mobile-panel" aria-label="移动端导航">
+    <a class="nav-link" href="#services">服务领域</a>
+    <a class="nav-link" href="#team">专业人员</a>
+    <a class="nav-link" href="#observation">纬理观察</a>
+    <a class="nav-link" href="#about">关于纬理</a>
+    <a class="nav-link" href="#join">加入我们</a>
+    <a class="btn" href="#contact">预约咨询</a>
+  </nav>
+
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <div class="eyebrow">New Complex Matters</div>
+      <h1>理解新型问题，<br>处理关键争议。</h1>
+      <p>纬理关注互联网平台、企业经营、复杂争议与个人关键事务，为客户提供克制、清晰、可执行的法律判断。</p>
+    </div>
+    <div class="hero-banner" aria-label="纬理服务方式轮播">
+      <div class="slide is-active" style="--image:url('assets/weli-banner-accountable.png')"><div class="slide-content"><h2>责任律师明确负责</h2><p>每一项事务均由责任律师牵头推进，确保沟通对象清晰、判断口径稳定、处理进度可追踪。</p><a class="slide-cta" href="professionals.html">了解服务机制</a></div></div>
+      <div class="slide" style="--image:url('assets/weli-banner-collaboration.png')"><div class="slide-content"><h2>团队协同处理复杂问题</h2><p>围绕争议、合规、证据与谈判等关键环节组织协作，让复杂问题在同一套方案中被系统处理。</p><a class="slide-cta" href="about.html">查看处理方法</a></div></div>
+      <div class="slide" style="--image:url('assets/weli-banner-path.png')"><div class="slide-content"><h2>提供清晰处理路径</h2><p>在不确定的事实与风险之间，帮助客户明确下一步行动、沟通节奏与可选择的处理方案。</p><a class="slide-cta" href="#path">预约初步沟通</a></div></div>
+      <div class="banner-dots" aria-label="切换轮播屏">
+        <button class="banner-dot is-active" type="button" aria-label="切换到责任律师明确负责"></button>
+        <button class="banner-dot" type="button" aria-label="切换到团队协同处理复杂问题"></button>
+        <button class="banner-dot" type="button" aria-label="切换到提供清晰处理路径"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-band" id="path">
+    <div class="feature-inner">
+      <div><div class="label">Commitment</div><h2>服务目标与承诺</h2><p>把客户最关心的响应、推进与结果感受，落实为清晰的服务目标。</p></div>
+      <div class="flow-diagram promise-diagram" aria-label="服务目标与承诺">
+        <div class="flow-step promise-step"><div class="flow-num">01</div><div class="flow-icon">↗</div><strong>有求必应</strong></div>
+        <div class="flow-step promise-step"><div class="flow-num">02</div><div class="flow-icon">→</div><strong>有求速应</strong></div>
+        <div class="flow-step promise-step"><div class="flow-num">03</div><div class="flow-icon">✓</div><strong>客户满意</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="section-head">
+      <div><div class="label">Services</div><h2>服务领域</h2></div>
+      <p class="section-intro">我们不以业务清单定义客户问题，而是围绕正在发生的新型风险，组织专业判断与项目协作。</p>
+    </div>
+    <div class="services">
+      <div class="focus" aria-live="polite"><div><h3 id="service-title">互联网平台争议</h3><p id="service-copy">面对平台责任、网络侵权、知识产权与批量争议，纬理帮助客户建立可沟通、可执行、可复盘的处理路径。</p></div><div class="focus-note" id="service-note">Service 01</div></div>
+      <div class="link-grid">
+        <a class="service-link is-active" href="services.html#platform" data-title="互联网平台争议" data-copy="面对平台责任、网络侵权、知识产权与批量争议，纬理帮助客户建立可沟通、可执行、可复盘的处理路径。" data-note="Service 01">互联网平台争议 <span>01</span></a>
+        <a class="service-link" href="services.html#compliance" data-title="企业合规与刑事风险" data-copy="当业务模式、监管边界与刑事风险交织出现，纬理协助企业提前识别风险、校准决策并保留处理余地。" data-note="Service 02">企业合规与刑事风险 <span>02</span></a>
+        <a class="service-link" href="services.html#dispute" data-title="民商事争议解决" data-copy="围绕合同、股权、交易与合作争议，纬理将事实梳理、证据组织和谈判诉讼路径放入同一方案。" data-note="Service 03">民商事争议解决 <span>03</span></a>
+        <a class="service-link" href="services.html#ip" data-title="知识产权与网络侵权" data-copy="针对内容、品牌、名誉、数据与平台场景中的侵权问题，提供取证、沟通、维权和风险控制建议。" data-note="Service 04">知识产权与网络侵权 <span>04</span></a>
+        <a class="service-link" href="services.html#family" data-title="婚姻家事与财富安排" data-copy="在关系、资产和身份变化中，提供克制、私密、可执行的法律安排，帮助客户稳定处理关键事务。" data-note="Service 05">婚姻家事与财富安排 <span>05</span></a>
+        <a class="service-link" href="services.html#crisis" data-title="危机处理与专项顾问" data-copy="面对舆情、争议升级、突发调查或重大沟通节点，纬理帮助客户快速形成判断、口径和行动顺序。" data-note="Service 06">危机处理与专项顾问 <span>06</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-band dark" id="collaboration">
+    <div class="feature-inner">
+      <div><div class="label">Collaboration</div><h2>团队协同处理复杂问题</h2><p>由责任律师牵头，把不同专业判断组织进同一套处理流程。</p></div>
+      <div class="flow-diagram dark" aria-label="团队协同处理复杂问题流程图">
+        <div class="flow-step"><div class="flow-num">01</div><div class="flow-icon">●</div><strong>稳定的服务团队</strong><span>由责任律师牵头，稳定承接关键事项。</span></div>
+        <div class="flow-step"><div class="flow-num">02</div><div class="flow-icon">◎</div><strong>完备的团队机制</strong><span>不同专业判断在同一流程内协同推进。</span></div>
+        <div class="flow-step"><div class="flow-num">03</div><div class="flow-icon">◇</div><strong>项目联络人制度</strong><span>统一沟通入口，确保进度、资料和反馈可追踪。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+    <div class="section-head">
+      <div><div class="label">Team</div><h2>专业人员</h2></div>
+      <a class="more" href="professionals.html">MORE &gt;</a>
+    </div>
+    <div class="team">
+      <p class="section-intro">由具备司法经验、平台业务理解与复杂案件处理能力的律师团队，参与关键问题判断与方案推进。</p>
+      <div class="people">
+        <div class="person"><div class="avatar"></div><h3>姜楠</h3><p>主任 / 新型风险与复杂争议</p></div>
+        <div class="person"><div class="avatar"></div><h3>合伙人团队</h3><p>企业合规 / 争议解决</p></div>
+        <div class="person"><div class="avatar"></div><h3>主办律师</h3><p>批量案件 / 客户响应</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="observation">
+    <div class="observation">
+      <div>
+        <div class="label">Observation</div><h2>纬理观察</h2><p class="section-intro">将真实问题沉淀为专业内容，让客户在咨询前先理解风险边界。</p>
+        <div class="podcast-card">
+          <div><div class="label">Podcast</div><h3>纬理播客 · 最新节目</h3><p>从一个真实问题出发，讨论平台责任、企业风险与法律判断如何进入业务现场。</p></div>
+          <a class="podcast-link" href="observation.html#podcast">收听最新节目 &gt;</a>
+        </div>
+      </div>
+      <div>
+        <div class="article-list">
+          <a class="article" href="article-detail.html"><div class="date">2026.04</div><div><h3>网络侵权案件中的平台责任边界</h3><p>案例观察</p></div></a>
+          <a class="article" href="article-detail.html#checklist"><div class="date">2026.04</div><div><h3>企业新型业务的合规风险清单</h3><p>风险清单</p></div></a>
+          <a class="article" href="article-detail.html#view"><div class="date">2026.04</div><div><h3>从经济犯罪案件看业务创新边界</h3><p>律师观点</p></div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="split">
+    <div class="split-card" id="about"><div class="label">About us</div><h2>关于纬理</h2><p>纬理希望成为一家面向新型问题的精品律所。我们重视专业判断，也重视客户如何理解、使用并执行这些判断。</p><a class="more" href="about.html">MORE &gt;</a></div>
+    <div class="split-card" id="join"><div class="label">Join us</div><h2>加入我们</h2><p>如果你希望处理更具挑战的新型案件，并在专业表达中建立个人影响力，纬理提供共同成长的平台。</p><a class="more" href="join.html">MORE &gt;</a></div>
+  </section>
+
+  <footer id="contact">
+    <div><h3>北京纬理律师事务所</h3><p>BEIJING WELI LAW FIRM</p></div>
+    <div><div class="contact-lead">需要初步沟通，直接联系纬理。</div><p>请简要说明问题背景、所在地区和希望沟通的事项，我们会先判断是否适合进入正式委托。</p><a class="contact-mail" href="mailto:contact@weli-law.cn">contact@weli-law.cn</a></div>
+    <div class="foot-links"><a href="#services">服务领域</a><a href="#team">专业人员</a><a href="#observation">纬理观察</a><a href="#about">关于纬理</a><p>北京<br>隐私政策 · 法律声明</p></div>
+  </footer>
+  <script>
+    const heroBanner = document.querySelector(".hero-banner");
+    const heroSlides = [...document.querySelectorAll(".hero-banner .slide")];
+    const heroDots = [...document.querySelectorAll(".hero-banner .banner-dot")];
+    let heroIndex = 0;
+    let heroTimer;
+
+    function showHeroSlide(index) {
+      heroIndex = index;
+      heroSlides.forEach((slide, i) => slide.classList.toggle("is-active", i === index));
+      heroDots.forEach((dot, i) => dot.classList.toggle("is-active", i === index));
+    }
+
+    function startHeroCarousel() {
+      heroTimer = window.setInterval(() => showHeroSlide((heroIndex + 1) % heroSlides.length), 8000);
+    }
+
+    function restartHeroCarousel() {
+      window.clearInterval(heroTimer);
+      startHeroCarousel();
+    }
+
+    heroDots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showHeroSlide(index);
+        restartHeroCarousel();
+      });
+    });
+
+    heroBanner.addEventListener("mouseenter", () => window.clearInterval(heroTimer));
+    heroBanner.addEventListener("mouseleave", startHeroCarousel);
+    startHeroCarousel();
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mobilePanel = document.querySelector(".mobile-panel");
+    const navLinks = [...document.querySelectorAll(".nav-link")];
+    const observedSections = ["services", "team", "observation", "about", "join"]
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    function closeMobileMenu() {
+      mobilePanel.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mobilePanel.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.querySelectorAll(".mobile-panel a").forEach((link) => {
+      link.addEventListener("click", closeMobileMenu);
+    });
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const activeEntry = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!activeEntry) return;
+      const activeHash = `#${activeEntry.target.id}`;
+      navLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === activeHash));
+    }, { rootMargin: "-35% 0px -50% 0px", threshold: [0.08, 0.2, 0.45] });
+
+    observedSections.forEach((section) => sectionObserver.observe(section));
+
+    const serviceTitle = document.getElementById("service-title");
+    const serviceCopy = document.getElementById("service-copy");
+    const serviceNote = document.getElementById("service-note");
+    const serviceLinks = [...document.querySelectorAll(".service-link")];
+
+    serviceLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        serviceLinks.forEach((item) => item.classList.remove("is-active"));
+        link.classList.add("is-active");
+        serviceTitle.textContent = link.dataset.title;
+        serviceCopy.textContent = link.dataset.copy;
+        serviceNote.textContent = link.dataset.note;
+      });
+    });
+  </script>
+</main>
+</body>
+</html>
