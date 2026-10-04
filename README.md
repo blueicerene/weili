@@ -1,5 +1,13 @@
 # 北京纬理律师事务所网站设计与品牌升级项目
 
+## English overview
+
+A law-firm brand, website and service-design prototype exploring how client questions can guide information architecture, consultation pathways and professional content.
+
+**Status:** concept and review materials. This repository does not establish a production launch, client adoption or measured business outcomes. The HTML and presentations demonstrate proposed content, visual direction and service communication; service commitments in the prototype require confirmation before operational use.
+
+**Explore:** [homepage HTML](./weli-homepage-ui.html) (download and open locally), [management presentation](./北京纬理律师事务所_网站设计与品牌升级方案_管理层汇报.pptx), and [deliverable index](./DELIVERABLES.md).
+
 ## 项目定位
 
 本项目围绕北京纬理律师事务所的网站设计与品牌升级展开，目标不是制作普通律所官网，而是建立一套面向客户决策、内容沉淀和律师吸引的业务基础设施。
@@ -60,60 +68,37 @@
 
 ### 首页 UI 原型
 
-- [纬理首页 UI 页面稿](./output/weli-homepage-ui.html)
+- [纬理首页 UI 页面稿](./weli-homepage-ui.html)
 
 这是当前最主要的网页方向文件，可直接在浏览器打开查看。它不是完整工程化官网，而是用于讨论首页信息架构、品牌方向和视觉气质的高保真 HTML 原型。
 
 ### 管理层汇报 PPT
 
-- [网站设计与品牌升级方案 - 管理层汇报](./output/北京纬理律师事务所_网站设计与品牌升级方案_管理层汇报.pptx)
+- [网站设计与品牌升级方案 - 管理层汇报](./北京纬理律师事务所_网站设计与品牌升级方案_管理层汇报.pptx)
 
 定位为管理层决策材料，重点解释为什么要做、做什么、有什么业务价值、为什么建议立即启动。
 
 ### 早期品牌方向 PPT
 
-- [网站品牌方向介绍](./output/北京纬理律师事务所_网站品牌方向介绍.pptx)
+- [网站品牌方向介绍](./北京纬理律师事务所_网站品牌方向介绍.pptx)
 
 用于比较三种首页方向：高端商务型、内容品牌型、现代精品所型。
 
 ### 辅助素材
 
-- [泛内容型律所网站示意图](./output/assets/content-driven-generic-law-site.svg)
+- [泛内容型律所网站示意图](./assets/content-driven-generic-law-site.svg)
 
 用于 PPT 中说明“内容驱动型”模式的抽象示意，避免引用具体知名律所作为反面案例。
 
-## 代码与生成文件
+## 当前仓库结构
 
-### React UI Preview
+- [首页 HTML 原型](./weli-homepage-ui.html)：下载后在浏览器中查看。
+- [静态页面入口](./docs/index.html)：当前多页面展示文件。
+- [React 页面入口](./app/page.tsx)：当前页面实现。
+- [项目配置](./package.json)：依赖与构建脚本。
+- [静态构建脚本](./scripts/build-static.mjs)：静态展示文件生成入口。
 
-- [React 入口](./src/main.jsx)
-- [样式文件](./src/styles.css)
-
-早期创建的 React + Tailwind 三版首页预览，可继续作为多方案比较基础。
-
-运行方式：
-
-```bash
-npm install --cache ./.npm-cache
-npm run dev
-```
-
-### PPT 生成脚本
-
-- [品牌方向 PPT 生成脚本](./src/weli-brand-deck.mjs)
-- [管理层汇报 PPT 生成脚本](./src/weli-management-deck.mjs)
-
-重新生成 PPT：
-
-```bash
-/Users/rene/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node src/weli-management-deck.mjs
-```
-
-输出路径：
-
-```text
-output/北京纬理律师事务所_网站设计与品牌升级方案_管理层汇报.pptx
-```
+早期三版 React 预览和 PPT 生成脚本未包含在当前仓库；上方 PPT 为现存交付文件。
 
 ## 视觉方向
 
@@ -151,5 +136,4 @@ output/北京纬理律师事务所_网站设计与品牌升级方案_管理层�
    - 预约咨询
 
 4. 将 HTML 原型工程化  
-   当前 [weli-homepage-ui.html](./output/weli-homepage-ui.html) 是高保真静态稿。确认方向后，可迁移为 React 页面，并补充响应式移动端。
-
+   当前 [weli-homepage-ui.html](./weli-homepage-ui.html) 是高保真静态稿。当前仓库另有 React 页面与静态多页面版本，后续应以确认后的内容和展示验收为准。
