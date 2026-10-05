@@ -4,7 +4,7 @@
 
 文件：
 
-- [output/weli-homepage-ui.html](./output/weli-homepage-ui.html)
+- [weli-homepage-ui.html](./weli-homepage-ui.html)
 
 用途：
 
@@ -27,7 +27,7 @@
 
 文件：
 
-- [output/北京纬理律师事务所_网站设计与品牌升级方案_管理层汇报.pptx](./output/北京纬理律师事务所_网站设计与品牌升级方案_管理层汇报.pptx)
+- [北京纬理律师事务所_网站设计与品牌升级方案_管理层汇报.pptx](./北京纬理律师事务所_网站设计与品牌升级方案_管理层汇报.pptx)
 
 用途：
 
@@ -42,7 +42,7 @@
 
 文件：
 
-- [output/北京纬理律师事务所_网站品牌方向介绍.pptx](./output/北京纬理律师事务所_网站品牌方向介绍.pptx)
+- [北京纬理律师事务所_网站品牌方向介绍.pptx](./北京纬理律师事务所_网站品牌方向介绍.pptx)
 
 用途：
 
@@ -53,46 +53,23 @@
 
 文件：
 
-- [output/assets/content-driven-generic-law-site.svg](./output/assets/content-driven-generic-law-site.svg)
+- [assets/content-driven-generic-law-site.svg](./assets/content-driven-generic-law-site.svg)
 
 用途：
 
 - 用于说明“泛内容型 / 内容驱动型”网站模式。
 - 不指向任何真实律所，避免误伤行业标杆。
 
-## 5. React 三版 UI Preview
+## 5. 当前页面与构建入口
 
-文件：
+- [静态页面入口](./docs/index.html)
+- [React 页面入口](./app/page.tsx)
+- [项目配置](./package.json)
+- [静态构建脚本](./scripts/build-static.mjs)
 
-- [src/main.jsx](./src/main.jsx)
-- [src/styles.css](./src/styles.css)
-- [index.html](./index.html)
+早期 React 三版预览与 PPT 生成脚本不在当前仓库中，故不再提供失效链接。以上文件是原型与评审材料，不代表正式上线或客户采用。
 
-用途：
-
-- 早期创建的 React + Tailwind 单页预览。
-- 可切换三种风格：首页 A / B / C。
-
-运行：
-
-```bash
-npm install --cache ./.npm-cache
-npm run dev
-```
-
-## 6. PPT 生成脚本
-
-文件：
-
-- [src/weli-brand-deck.mjs](./src/weli-brand-deck.mjs)
-- [src/weli-management-deck.mjs](./src/weli-management-deck.mjs)
-
-用途：
-
-- 重新生成 PPT 文件。
-- 可继续修改页面结构、文案和视觉样式。
-
-## 7. 项目说明文档
+## 6. 项目说明文档
 
 文件：
 
@@ -105,4 +82,3 @@ npm run dev
 - README：项目总览。
 - PROJECT_BRIEF：战略简报。
 - DELIVERABLES：成果文件索引。
-
